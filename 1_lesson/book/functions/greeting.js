@@ -4,3 +4,4 @@ function greetPeople() {
 }
 
 greetPeople();
+console.log(greetingMessage);
