@@ -1,6 +1,9 @@
-function sum(num1, num2, num3) {
-  let sum = num1 + num2 + num3;
-  return sum
+function sum(array) {
+  let total = 0;
+  for (let value of array) {
+    total += value;
+  }
+  return total;
 }
 
 function average (num1, num2, num3) {
@@ -8,5 +11,9 @@ function average (num1, num2, num3) {
   return average;
 }
 
-let testAverage = average(5, 7, 9);
-console.log(testAverage);
+function arrayAverage (array) {
+  let total = sum(array);
+  return total / array.length;
+}
+
+console.log(arrayAverage([1, 3, 5, 7, 9, 11, 13, 15, 17]));
