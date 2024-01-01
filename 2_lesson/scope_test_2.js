@@ -1,3 +1,5 @@
+console.log(foo);
+
 var foo = 1;
 function bar() {
   var foo = 2;
