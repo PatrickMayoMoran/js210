@@ -23,23 +23,28 @@
 
 const ROTATION = 13;
 const NORMALIZE = 26;
+const LOWERSTART = 97;
+const LOWEREND = 122;
+const UPPERSTART = 65;
+const UPPEREND = 90;
+const UPPERLIMIT = 109;
 
 function isLetter(charCode) {
   return isLower(charCode) || isUpper(charCode);
 }
 
 function isLower(charCode) {
-  return charCode >= 97 && charCode <= 122;
+  return charCode >= LOWERSTART && charCode <= LOWEREND;
 }
 
 function isUpper(charCode) {
-  return charCode >= 65 && charCode <= 90;
+  return charCode >= UPPERSTART && charCode <= UPPEREND;
 }
 
 function encryptLetter(charCode) {
   charCode += ROTATION;
 
-  if ((charCode > 122) || (charCode > 90 && charCode < 109)) {
+  if ((charCode > LOWEREND) || (charCode > UPPEREND && charCode < UPPERLIMIT)) {
     charCode -= NORMALIZE;
   }
   
