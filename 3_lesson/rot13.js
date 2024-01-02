@@ -44,11 +44,15 @@ function normalize(charCode) {
   return charCode - NORMALIZE;
 }
 
+function outOfBounds(charCode) {
+  return (charCode > LOWEREND) || (charCode > UPPEREND && charCode < UPPERLIMIT);
+}
+
 function encryptLetter(charCode) {
   const ROTATION = 13;
   charCode += ROTATION;
-
-  if ((charCode > LOWEREND) || (charCode > UPPEREND && charCode < UPPERLIMIT)) {
+  
+  if (outOfBounds(charCode)) {
     charCode = normalize(charCode);
   }
   
@@ -57,8 +61,10 @@ function encryptLetter(charCode) {
 
 function rot13(string) {
   let encryptedString = '';
+  
   for (let i = 0; i < string.length; i += 1) {
     let charCode = string.charCodeAt(i);
+    
     if (isLetter(charCode)) {
       let encryptedLetter = encryptLetter(charCode);
       encryptedString += encryptedLetter;
@@ -71,6 +77,8 @@ function rot13(string) {
 }
 
 console.log(rot13('Teachers open the door, but you must enter by yourself.'));
-
+const FOX = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.";
+console.log(rot13(FOX) === "GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.");
+console.log(rot13(rot13(FOX)) === FOX);
 // logs:
 // Grnpuref bcra gur qbbe, ohg lbh zhfg ragre ol lbhefrys.
