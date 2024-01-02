@@ -54,9 +54,9 @@ function encryptLetter(charCode) {
 function rot13(string) {
   let encryptedString = '';
   for (let i = 0; i < string.length; i += 1) {
-    charCode = string.charCodeAt(i);
+    let charCode = string.charCodeAt(i);
     if (isLetter(charCode)) {
-      encryptedLetter = encryptLetter(charCode);
+      let encryptedLetter = encryptLetter(charCode);
       encryptedString += encryptedLetter;
     } else {
       encryptedString += string[i];
