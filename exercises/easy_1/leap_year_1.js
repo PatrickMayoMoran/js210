@@ -11,8 +11,6 @@ function divisibleFour(year) {
 }
 
 function isLeapYear(year) {
-  console.log(year);
-
   if (divisibleFourHundred(year)) {
     return true;
   } else if (divisibleOneHundred(year)) {
