@@ -22,7 +22,6 @@
  */
 
 const ROTATION = 13;
-const NORMALIZE = 26;
 const LOWERSTART = 97;
 const LOWEREND = 122;
 const UPPERSTART = 65;
@@ -41,11 +40,16 @@ function isUpper(charCode) {
   return charCode >= UPPERSTART && charCode <= UPPEREND;
 }
 
+function normalize(charCode) {
+  const NORMALIZE = 26;
+  return charCode - NORMALIZE;
+}
+
 function encryptLetter(charCode) {
   charCode += ROTATION;
 
   if ((charCode > LOWEREND) || (charCode > UPPEREND && charCode < UPPERLIMIT)) {
-    charCode -= NORMALIZE;
+    charCode = normalize(charCode);
   }
   
   return String.fromCharCode(charCode);
