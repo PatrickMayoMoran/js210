@@ -21,7 +21,6 @@
  *
  */
 
-const ROTATION = 13;
 const LOWERSTART = 97;
 const LOWEREND = 122;
 const UPPERSTART = 65;
@@ -46,6 +45,7 @@ function normalize(charCode) {
 }
 
 function encryptLetter(charCode) {
+  const ROTATION = 13;
   charCode += ROTATION;
 
   if ((charCode > LOWEREND) || (charCode > UPPEREND && charCode < UPPERLIMIT)) {
