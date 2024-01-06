@@ -1,3 +1,4 @@
+// Classic
 function foo() {
   return {
     bar: function() {
