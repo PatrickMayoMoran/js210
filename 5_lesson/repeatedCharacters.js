@@ -1,6 +1,29 @@
 function repeatedCharacters(string) {
   let lowerString = string.toLowerCase();
-  return lowerString;
+  let characterCounts = characterCount(lowerString);
+  let repeats = {}
+  for (let letter in characterCounts) {
+    let count = characterCounts[letter];
+    if (count >= 2) {
+      repeats[letter] = count;
+    }
+  }
+
+  return repeats;
+}
+
+function characterCount(string) {
+  let letters = string.split('');
+  let count = {};
+  for (let letter of letters) {
+    if (count[letter]) {
+      count[letter] += 1;
+    } else {
+      count[letter] = 1;
+    }
+  }
+
+  return count;
 }
 
 console.log(repeatedCharacters('Programming'));    // { r: 2, g: 2, m: 2 }
